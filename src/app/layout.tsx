@@ -1,8 +1,8 @@
+import Container from '@/components/layout/Container'
+import Navbar from '@/components/layout/Navbar'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Container from './components/layout/Container'
-import Navbar from './components/layout/Navbar'
 
 const inter = Inter({
   variable: '--font-inter',
