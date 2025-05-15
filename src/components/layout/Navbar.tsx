@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 function Navbar() {
   return (
     <nav className='h-16 w-full px-8'>
@@ -7,7 +9,7 @@ function Navbar() {
           <button>Men</button>
           <button>Company</button>
         </div>
-        <p>logo</p>
+        <Link href='/'>logo</Link>
         <div className='flex grow justify-end gap-8'>
           <button>BRL</button>
           <button>Login</button>

@@ -1,10 +1,13 @@
+import { type Product } from '@/types/products'
+
 export const products = [
   {
     id: '10000080001',
     title: 'Conjunto Infantil Menino Kyly',
-    colors: [
+    variants: [
       {
         id: 'astro-boy',
+        name: 'Astro Boy',
         price: 129,
         installments: {
           times: 12,
@@ -29,6 +32,7 @@ export const products = [
       },
       {
         id: 'dog-fun',
+        name: 'Dog Fun',
         price: 115,
         installments: {
           times: 12,
@@ -40,6 +44,7 @@ export const products = [
           '/products/dog-fun/image02.jpg',
           '/products/dog-fun/image03.jpg',
           '/products/dog-fun/image04.jpg',
+          '/products/dog-fun/image05.jpg',
         ],
         details: [
           'Camiseta com bolso de urso',
@@ -52,6 +57,7 @@ export const products = [
       },
       {
         id: 'fast-boy',
+        name: 'Fast Boy',
         price: 149,
         installments: {
           times: 12,
@@ -63,6 +69,7 @@ export const products = [
           '/products/fast-boy/image02.jpg',
           '/products/fast-boy/image03.jpg',
           '/products/fast-boy/image04.jpg',
+          '/products/fast-boy/image05.jpg',
         ],
         details: [
           'Estampa frontal de cachorro',
@@ -75,4 +82,4 @@ export const products = [
       },
     ],
   },
-]
+] as Product[]

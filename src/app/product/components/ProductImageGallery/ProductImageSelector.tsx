@@ -2,17 +2,17 @@ import { cn } from '@/lib/utils/cn'
 import Image from 'next/image'
 
 type ProductImageSelectorProps = {
-  index: number
+  src: string
+  name: string
   isSelected?: boolean
   onSelectChange?: () => void
-  id: string
 }
 
 export default function ProductImageSelector({
-  index,
+  src,
+  name,
   isSelected,
   onSelectChange,
-  id,
 }: ProductImageSelectorProps) {
   return (
     <button
@@ -23,10 +23,10 @@ export default function ProductImageSelector({
     >
       <Image
         className='h-full w-full object-contain'
-        src={`/products/${id}/image0${index}.jpg`}
-        alt={`Product Image 0${index}`}
-        fill
+        src={src}
+        alt={name}
         sizes='5vw'
+        fill
       />
     </button>
   )

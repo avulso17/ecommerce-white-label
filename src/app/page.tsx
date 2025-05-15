@@ -7,21 +7,21 @@ export default function Home() {
     <main className='h-full px-8 py-16'>
       <div className='flex gap-4'>
         {products.map((product) =>
-          product.colors.map((item) => (
+          product.variants.map((variant) => (
             <Link
-              href={`/product/${item.id}`}
-              key={item.id}
+              key={variant.id}
+              href={`/product/${product.id}/${variant.id}`}
               className='flex cursor-pointer flex-col items-center rounded-lg border border-black/10 p-4'
             >
               <Image
                 className='h-40 w-40 object-contain'
-                src={item.images[0]}
+                src={variant.images[0]}
                 alt={product.title}
                 height={174}
                 width={174}
               />
               <span>{product.title}</span>
-              <span>R${item.price}</span>
+              <span>R${variant.price}</span>
             </Link>
           ))
         )}
