@@ -1,23 +1,24 @@
-export type ProductVariantInstallments = {
+export type ProductInstallments = {
   times: number
   value: number
 }
-export type ProductVariantSize = string
-export type ProductVariantDetail = string
-export type ProductVariantImage = string
-
+export type ProductSize = string
+export type ProductDetail = string
+export type ProductImage = string
 export type ProductVariant = {
   id: string
   name: string
-  price: number
-  installments: ProductVariantInstallments
-  sizes: ProductVariantSize[]
-  details: ProductVariantDetail[]
-  images: ProductVariantImage[]
+  thumb: string
 }
-
 export type Product = {
   id: string
   title: string
+  brand: string
+  name: string
+  price: number
+  installments: ProductInstallments
+  sizes: ProductSize[]
+  images: ProductImage[]
+  details: ProductDetail[]
   variants: ProductVariant[]
 }

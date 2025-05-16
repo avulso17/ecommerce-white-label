@@ -3,14 +3,12 @@ import Image from 'next/image'
 
 type ProductImageSelectorProps = {
   src: string
-  name: string
   isSelected?: boolean
   onSelectChange?: () => void
 }
 
 export default function ProductImageSelector({
   src,
-  name,
   isSelected,
   onSelectChange,
 }: ProductImageSelectorProps) {
@@ -24,7 +22,7 @@ export default function ProductImageSelector({
       <Image
         className='h-full w-full object-contain'
         src={src}
-        alt={name}
+        alt='Product Image'
         sizes='5vw'
         fill
       />

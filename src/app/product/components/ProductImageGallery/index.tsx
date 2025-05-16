@@ -5,24 +5,22 @@ import { useCallback, useState } from 'react'
 import ProductImageSelector from './ProductImageSelector'
 
 type ProductImageGalleryProps = {
-  variantId: string
   images: string[]
 }
 
 export default function ProductImageGallery({
-  variantId,
   images,
 }: ProductImageGalleryProps) {
-  const [activeImg, setActiveImg] = useState(images[0])
+  const [activeImgIndex, setActiveImgIndex] = useState(0)
 
-  const handleClick = useCallback((src: string) => {
-    setActiveImg(src)
+  const handleClick = useCallback((index: number) => {
+    setActiveImgIndex(index)
   }, [])
 
   return (
     <section className='mr-6 flex flex-col gap-6'>
       <Image
-        src={activeImg}
+        src={images[activeImgIndex]}
         alt='Product Image'
         className='aspect-square w-[35vw] rounded-lg bg-gray-100 object-contain'
         width={530}
@@ -35,9 +33,8 @@ export default function ProductImageGallery({
           <ProductImageSelector
             key={index}
             src={src}
-            name={variantId}
-            isSelected={src === activeImg}
-            onSelectChange={() => handleClick(src)}
+            isSelected={index === activeImgIndex}
+            onSelectChange={() => handleClick(index)}
           />
         ))}
       </div>

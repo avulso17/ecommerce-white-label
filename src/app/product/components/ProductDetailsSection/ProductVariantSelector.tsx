@@ -1,20 +1,21 @@
-'use client'
-
 import { cn } from '@/lib/utils/cn'
 import { type ProductVariant } from '@/types/products'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
 
 type ProductVariantSelectorProps = {
+  currentId: string
+  brand: string
   variants: ProductVariant[]
 }
 
 export default function ProductVariantSelector({
+  currentId,
+  brand,
   variants,
 }: ProductVariantSelectorProps) {
-  const params = useParams<{ productId: string; variantId: string }>()
-  const selectedVariantName = params.variantId.replace('-', ' ')
+  const selectedVariantName =
+    variants.find((v) => v.id === currentId)?.name ?? ''
 
   return (
     <>
@@ -25,18 +26,18 @@ export default function ProductVariantSelector({
         {variants.map((variant) => (
           <Link
             key={variant.id}
-            href={`/product/${params.productId}/${variant.id}`}
+            href={`/product/${brand}/${variant.id}`}
             className={cn(
               'relative aspect-square h-10 w-10 rounded-sm bg-gray-200',
               {
                 'ring-2 ring-indigo-600 ring-offset-1':
-                  variant.id === params.variantId,
+                  variant.id === currentId,
               }
             )}
           >
             <Image
               className='object-contain object-center'
-              src={variant.images[0]}
+              src={variant.thumb}
               alt={variant.name}
               sizes='40px'
               fill
