@@ -18,17 +18,17 @@ export default function ProductImageGallery({
   }, [])
 
   return (
-    <section className='mr-6 flex flex-col gap-6'>
+    <section className='mr-6 flex w-[35vw] max-w-[478px] min-w-[400px] grow flex-col gap-5'>
       <Image
         src={images[activeImgIndex]}
         alt='Product Image'
-        className='aspect-square w-[35vw] rounded-lg bg-gray-100 object-contain'
+        className='aspect-square w-full rounded-lg bg-gray-100 object-contain'
         width={530}
         height={530}
         priority
       />
 
-      <div className='flex items-center justify-between gap-6'>
+      <div className='flex items-center justify-between gap-5'>
         {images.map((src, index) => (
           <ProductImageSelector
             key={index}

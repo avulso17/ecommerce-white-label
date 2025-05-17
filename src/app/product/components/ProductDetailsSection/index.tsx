@@ -29,7 +29,7 @@ export default function ProductDetailsSection({
   details,
 }: ProductDetailsSectionProps) {
   return (
-    <section className='mr-6 grow'>
+    <section className='mr-6 max-w-[340px] shrink-0 grow-[2]'>
       <h1 className='text-2xl font-bold'>{title}</h1>
       {/* <div>estrelinhas</div> */}
       <span className='mt-3 block text-4xl'>R$ {price}</span>

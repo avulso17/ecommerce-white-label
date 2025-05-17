@@ -15,7 +15,7 @@ export default function ProductImageSelector({
   return (
     <button
       onClick={onSelectChange && onSelectChange}
-      className={cn('relative h-24 w-full rounded-md bg-gray-100', {
+      className={cn('relative h-16 w-full rounded-md bg-gray-100', {
         'ring-2 ring-indigo-600 ring-offset-2': isSelected === true,
       })}
     >

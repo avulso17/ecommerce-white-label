@@ -217,4 +217,31 @@ export const PRODUCTS = [
       },
     ],
   },
+  {
+    id: '755',
+    title:
+      'Conjunto Infantil Menina, Blusa Rosa Manga Longa Meia Malha com Estampa de Raposa, Calça Legging Floral Azul Marinho',
+    brand: 'Kyly',
+    name: 'Flower Fox',
+    price: 75.9,
+    installments: {
+      times: 12,
+      value: 6.4,
+    },
+    sizes: ['1', '2', '3', '4', '6', '8'],
+    images: [
+      '/products/flower-fox/image01.jpg',
+      '/products/flower-fox/image02.jpg',
+      '/products/flower-fox/image03.jpg',
+      '/products/flower-fox/image04.jpg',
+      '/products/flower-fox/image05.jpg',
+    ],
+    details: [
+      'CONJUNTO COMPLETO: Conjunto infantil feminino composto por blusa manga longa rosa e calça legging estampada, ideal para uso diário e conforto',
+      'BLUSA ESTILOSA: Confeccionada em meia malha com estampa adorável de raposa e flores, proporcionando visual delicado e charmoso',
+      'CALÇA VERSÁTIL: Legging azul marinho com estampa floral em tons de rosa, oferecendo flexibilidade e liberdade de movimento',
+      'MATERIAL: Tecidos selecionados que garantem conforto e durabilidade, adequados para o dia a dia das crianças',
+      'DESIGN COORDENADO: Combinação harmoniosa de cores e estampas que permite múltiplas combinações no guarda-roupa infantil',
+    ],
+  },
 ] as Product[]
