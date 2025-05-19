@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils/cn'
-import { forwardRef, InputHTMLAttributes } from 'react'
+import { forwardRef } from 'react'
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   error?: string
   className?: string
   containerClassName?: string

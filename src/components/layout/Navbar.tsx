@@ -13,7 +13,7 @@ function Navbar() {
         <div className='flex grow justify-end gap-8'>
           <button>BRL</button>
           <button>Login</button>
-          <button>Settings</button>
+          <button>Kart</button>
         </div>
       </div>
     </nav>
