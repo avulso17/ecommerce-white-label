@@ -1,7 +1,7 @@
 'use server'
 
 import { BASE_URL } from '@/constants/baseUrl'
-import { createCookie } from '@/lib/utils/cookies'
+import { clearCookieValue, createCookie } from '@/lib/utils/cookies'
 import { ViaCEPResponse } from '@/types/viacep'
 
 export type ShippingSuccess = {
@@ -27,6 +27,12 @@ export async function getShipping(
   }
   const cep = rawFormData.cep as string
   const rawCep = cep.replace(/\D/g, '')
+
+  await clearCookieValue('shipping')
+
+  if (rawCep.length === 0) {
+    return { status: 'error', message: 'Type a valid CEP' }
+  }
 
   const res = await fetch(`${BASE_URL}/api/cep/${rawCep}`)
 
