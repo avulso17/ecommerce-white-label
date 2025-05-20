@@ -5,18 +5,18 @@ import { PatternFormat, PatternFormatProps } from 'react-number-format'
 import Input from './Input'
 
 type InputFormatProps = Omit<PatternFormatProps, 'customInput'> & {
-  error?: string
+  errorText?: string
   className?: string
   containerClassName?: string
 }
 
 const InputFormat = forwardRef<HTMLInputElement, InputFormatProps>(
-  ({ error, className, containerClassName, ...props }, ref) => {
+  ({ errorText, className, containerClassName, ...props }, ref) => {
     return (
       <PatternFormat
         getInputRef={ref}
         customInput={Input}
-        error={error}
+        error={errorText}
         className={className}
         containerClassName={containerClassName}
         {...props}

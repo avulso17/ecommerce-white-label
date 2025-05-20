@@ -10,32 +10,24 @@ export default function ProductShippingForm() {
 
   return (
     <form action={formAction}>
-      <div className='flex flex-col gap-1'>
-        <label htmlFor='cep-input' className='text-sm font-bold'>
-          Consultar frete e prazo de entrega:
-        </label>
-        <div className='flex items-center gap-2'>
-          <InputFormat
-            id='cep-input'
-            name='cep-input'
-            placeholder='Inserir CEP'
-            format='#####-###'
-            disabled={isPending}
-          />
-          <Button
-            type='submit'
-            size='sm'
-            className='grow'
-            isLoading={isPending}
-          >
-            OK
-          </Button>
-        </div>
+      <label htmlFor='cep-input' className='text-sm font-bold'>
+        Consultar frete e prazo de entrega:
+      </label>
+      <div className='flex items-start gap-2'>
+        <InputFormat
+          id='cep-input'
+          name='cep-input'
+          placeholder='Inserir CEP'
+          format='#####-###'
+          disabled={isPending}
+          errorText={
+            response?.status === 'error' ? response.message : undefined
+          }
+        />
+        <Button type='submit' size='sm' className='grow' isLoading={isPending}>
+          OK
+        </Button>
       </div>
-
-      {response?.status === 'error' && (
-        <p className='mt-1 text-sm'>{response.message}</p>
-      )}
     </form>
   )
 }
