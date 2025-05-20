@@ -18,16 +18,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
       </p>
 
       <div className='flex'>
-        <ProductImageGallery images={product?.images ?? []} />
+        <ProductImageGallery images={product.images} />
         <ProductDetailsSection
-          id={product?.id ?? id}
-          brand={product?.brand ?? brand}
-          title={product?.title}
-          price={product?.price}
-          installments={product?.installments}
-          variants={product?.variants}
-          sizes={product?.sizes}
-          details={product?.details}
+          id={product.id}
+          brand={product.brand}
+          title={product.title}
+          price={product.price}
+          installments={product.installments}
+          variants={product.variants}
+          sizes={product.sizes}
+          details={product.details}
         />
         <ProductBuySection />
       </div>

@@ -2,7 +2,7 @@
 
 import { BASE_URL } from '@/constants/baseUrl'
 import { type Product } from '@/types/products'
-import { redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 
 export async function getProduct({
   id,
@@ -16,7 +16,7 @@ export async function getProduct({
   })
 
   if (!res.ok) {
-    redirect('/')
+    notFound()
   }
 
   return res.json()
