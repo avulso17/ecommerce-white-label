@@ -1,16 +1,17 @@
 'use server'
 
 import { BASE_URL } from '@/constants/baseUrl'
+import { createCookie } from '@/lib/utils/cookies'
 import { ViaCEPResponse } from '@/types/viacep'
 
-type ShippingSuccess = {
+export type ShippingSuccess = {
   status: 'success'
   price: number
   estimated_date: string
   cep_details: ViaCEPResponse
 }
 
-type ShippingError = {
+export type ShippingError = {
   status: 'error'
   message: string
 }
@@ -41,5 +42,14 @@ export async function getShipping(
   raw_estimated_date.setDate(new Date().getDate() + 2)
   const estimated_date = raw_estimated_date.toLocaleDateString('pt-BR')
 
-  return { status: 'success', price, estimated_date, cep_details }
+  const data = {
+    status: 'success',
+    price,
+    estimated_date,
+    cep_details,
+  } as ShippingSuccess
+
+  await createCookie('shipping', JSON.stringify(data))
+
+  return data
 }

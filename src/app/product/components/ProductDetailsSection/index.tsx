@@ -4,8 +4,8 @@ import {
   ProductSize,
   type ProductVariant,
 } from '@/types/products'
-import ProductSizeSelector from './ProductSizeSelector'
 import ProductVariantSelector from './ProductVariantSelector'
+import ProductSizeSelector from './SizeSelector'
 
 type ProductDetailsSectionProps = {
   id: string
