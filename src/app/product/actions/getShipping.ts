@@ -1,8 +1,9 @@
 'use server'
 
-import { BASE_URL } from '@/constants/baseUrl'
 import { clearCookieValue, createCookie } from '@/lib/utils/cookies'
 import { ViaCEPResponse } from '@/types/viacep'
+
+const BASE_URL = 'https://viacep.com.br/ws/'
 
 export type ShippingSuccess = {
   status: 'success'
@@ -30,17 +31,27 @@ export async function getShipping(
 
   await clearCookieValue('shipping')
 
-  if (rawCep.length === 0) {
-    return { status: 'error', message: 'Type a valid CEP' }
+  if (rawCep.length !== 8) {
+    return {
+      status: 'error',
+      message: 'CEP inválido. O CEP deve conter 8 dígitos.',
+    }
   }
 
-  const res = await fetch(`${BASE_URL}/api/cep/${rawCep}`)
+  const res = await fetch(`${BASE_URL}/${rawCep}/json`)
 
   if (!res.ok) {
-    return { status: 'error', message: 'Something went wrong!' }
+    return {
+      status: 'error',
+      message: `Erro na API ViaCEP: ${res.status} ${res.statusText}`,
+    }
   }
 
-  const cep_details = (await res.json()) as ViaCEPResponse
+  const cep_details_data = await res.json()
+
+  if (cep_details_data.erro) {
+    return { status: 'error', message: 'CEP não encontrado' }
+  }
 
   const floorPrice = 20.93
   const price = floorPrice * 1.2
@@ -52,7 +63,7 @@ export async function getShipping(
     status: 'success',
     price,
     estimated_date,
-    cep_details,
+    cep_details: cep_details_data,
   } as ShippingSuccess
 
   await createCookie('shipping', JSON.stringify(data))
