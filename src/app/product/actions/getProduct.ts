@@ -1,6 +1,6 @@
 'use server'
 
-import { BASE_URL } from '@/constants/baseUrl'
+import { PRODUCTS } from '@/constants/products'
 import { type Product } from '@/types/products'
 import { notFound } from 'next/navigation'
 
@@ -11,13 +11,11 @@ export async function getProduct({
   id: string
   brand: string
 }): Promise<Product> {
-  const res = await fetch(`${BASE_URL}/api/product/${brand}/${id}`, {
-    cache: 'no-store',
-  })
+  const product = PRODUCTS.find((p) => p.brand === brand && p.id === id)
 
-  if (!res.ok) {
+  if (product === undefined) {
     notFound()
   }
 
-  return res.json()
+  return product
 }
