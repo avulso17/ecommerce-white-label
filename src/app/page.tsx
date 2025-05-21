@@ -13,7 +13,7 @@ export default function Home() {
             className='flex cursor-pointer flex-col rounded-lg border border-black/10 p-4 transition-colors hover:border-indigo-600 hover:bg-indigo-600/10'
           >
             <Image
-              className='mx-auto h-40 w-40 object-contain'
+              className='mx-auto h-40 w-40 object-contain mix-blend-multiply'
               src={product.images[0]}
               alt={product.title}
               height={174}

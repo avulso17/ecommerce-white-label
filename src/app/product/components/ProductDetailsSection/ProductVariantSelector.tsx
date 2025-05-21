@@ -36,7 +36,7 @@ export default function ProductVariantSelector({
             )}
           >
             <Image
-              className='object-contain object-center'
+              className='object-contain object-center mix-blend-multiply'
               src={variant.thumb}
               alt={variant.name}
               sizes='40px'

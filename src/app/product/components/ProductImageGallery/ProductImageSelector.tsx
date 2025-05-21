@@ -20,7 +20,7 @@ export default function ProductImageSelector({
       })}
     >
       <Image
-        className='h-full w-full object-contain'
+        className='h-full w-full object-contain mix-blend-multiply'
         src={src}
         alt='Product Image'
         sizes='5vw'
