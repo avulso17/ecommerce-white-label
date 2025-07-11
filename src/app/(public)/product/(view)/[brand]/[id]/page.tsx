@@ -1,7 +1,7 @@
-import { getProduct } from '@/app/product/actions/getProduct'
-import ProductBuySection from '@/app/product/components/ProductBuySection'
-import ProductDetailsSection from '@/app/product/components/ProductDetailsSection'
-import ProductImageGallery from '@/app/product/components/ProductImageGallery'
+import { getProduct } from '../../../actions/getProduct'
+import ProductBuySection from '../../../components/ProductBuySection'
+import ProductDetailsSection from '../../../components/ProductDetailsSection'
+import ProductImageGallery from '../../../components/ProductImageGallery'
 
 type ProductPageProps = {
   params: Promise<{ brand: string; id: string }>

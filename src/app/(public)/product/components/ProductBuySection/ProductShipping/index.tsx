@@ -1,5 +1,5 @@
-import { ShippingSuccess } from '@/app/product/actions/getShipping'
 import { loadCookie } from '@/lib/utils/cookies'
+import { ShippingSuccess } from '../../../actions/getShipping'
 import ProductShippingAddress from './ProductShippingAddress'
 import ProductShippingForm from './ProductShippingForm'
 

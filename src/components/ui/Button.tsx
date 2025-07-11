@@ -3,6 +3,7 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 const buttonVariants = tv({
   base: [
+    'flex items-center gap-1',
     'font-medium transition-colors',
     'focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none',
     'disabled:pointer-events-none disabled:opacity-50',
@@ -13,6 +14,7 @@ const buttonVariants = tv({
       secondary: 'bg-indigo-600/10 text-indigo-600 hover:bg-indigo-600/20',
       outline: 'border border-indigo-600 text-indigo-600 hover:bg-indigo-50',
       ghost: 'text-indigo-600 hover:bg-indigo-50',
+      text: 'bg-transparent focus:underline focus:ring-0',
     },
     size: {
       xs: 'rounded-sm px-2 py-2 text-sm',
@@ -24,6 +26,13 @@ const buttonVariants = tv({
       true: 'w-full',
     },
   },
+  compoundVariants: [
+    {
+      variant: 'text',
+      size: ['xs', 'sm', 'md', 'lg'],
+      className: 'px-0',
+    },
+  ],
   defaultVariants: {
     variant: 'primary',
     size: 'md',

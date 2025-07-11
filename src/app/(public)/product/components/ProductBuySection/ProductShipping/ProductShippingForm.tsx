@@ -1,9 +1,9 @@
 'use client'
 
-import { getShipping } from '@/app/product/actions/getShipping'
 import Button from '@/components/ui/Button'
 import InputFormat from '@/components/ui/InputFormat'
 import { useActionState } from 'react'
+import { getShipping } from '../../../actions/getShipping'
 
 export default function ProductShippingForm() {
   const [response, formAction, isPending] = useActionState(getShipping, null)

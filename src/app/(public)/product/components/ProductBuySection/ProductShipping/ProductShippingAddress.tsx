@@ -1,4 +1,4 @@
-import { ShippingSuccess } from '@/app/product/actions/getShipping'
+import { ShippingSuccess } from '../../../actions/getShipping'
 
 type ProductShippingAddressProps = Omit<ShippingSuccess, 'status'>
 
