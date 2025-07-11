@@ -1,11 +1,8 @@
-import { PRODUCTS } from '@/constants/products'
-import Image from 'next/image'
-import Link from 'next/link'
-
 export default function Home() {
   return (
-    <main className='h-full px-8 py-16'>
-      <div className='grid grid-cols-4 gap-6'>
+    <main className='px-8 py-16'>
+      home
+      {/* <div className='grid grid-cols-4 gap-6'>
         {PRODUCTS.map((product) => (
           <Link
             key={product.id}
@@ -29,7 +26,7 @@ export default function Home() {
             </p>
           </Link>
         ))}
-      </div>
+      </div> */}
     </main>
   )
 }

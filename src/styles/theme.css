@@ -1,0 +1,64 @@
+@theme {
+  --font-inter: 'Inter', sans-serif;
+
+  /* semantic colors */
+  --color-blue-100: #f0f1ff;
+  --color-blue-200: #e3e5ff;
+  --color-blue-300: #b7bfff;
+  --color-blue-400: #a8b2ff;
+  --color-blue-500: #97a6ff;
+  --color-blue-600: #869aff;
+  --color-blue-700: #728fff;
+  --color-blue-800: #5c83ff;
+  --color-blue-900: #4078ff;
+  --color-green-100: #d5e5d7;
+  --color-green-200: #c1d8c4;
+  --color-green-300: #98be9e;
+  --color-green-400: #83b18b;
+  --color-green-500: #6fa479;
+  --color-green-600: #5a9868;
+  --color-green-700: #458b56;
+  --color-green-800: #2c7f45;
+  --color-green-900: #057234;
+  --color-red-100: #fbd9d0;
+  --color-red-200: #f8c5b9;
+  --color-red-300: #ee9f8d;
+  --color-red-400: #e88c77;
+  --color-red-500: #e17862;
+  --color-red-600: #d9644e;
+  --color-red-700: #d14f3a;
+  --color-red-800: #c83727;
+  --color-red-900: #be1313;
+  --color-yellow-100: #fff1d8;
+  --color-yellow-200: #ffeac4;
+  --color-yellow-300: #ffdc9e;
+  --color-yellow-400: #ffd58a;
+  --color-yellow-500: #fdcf76;
+  --color-yellow-600: #fbc862;
+  --color-yellow-700: #f9c14c;
+  --color-yellow-800: #f6bb33;
+  --color-yellow-900: #f3b40a;
+
+  /* design-system colors */
+  --color-primary-100: var(--color-blue-100);
+  --color-primary-200: var(--color-blue-200);
+  --color-primary-300: var(--color-blue-300);
+  --color-primary-400: var(--color-blue-400);
+  --color-primary-500: var(--color-blue-500);
+  --color-primary-600: var(--color-blue-600);
+  --color-primary-700: var(--color-blue-700);
+  --color-primary-800: var(--color-blue-800);
+  --color-primary-900: var(--color-blue-900);
+  --color-neutral-black-100: #e6e7e8;
+  --color-neutral-black-200: #b6b7bc;
+  --color-neutral-black-300: #878a92;
+  --color-neutral-black-400: #71747e;
+  --color-neutral-black-500: #5c5f6a;
+  --color-neutral-black-600: #474b57;
+  --color-neutral-black-700: #333845;
+  --color-neutral-black-800: #202533;
+  --color-neutral-black-900: #0e1422;
+  --color-neutral-white-100: #f6f6f6;
+  --color-neutral-white-200: #e9e9eb;
+  --color-neutral-white-900: #ffffff;
+}
