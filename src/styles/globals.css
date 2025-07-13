@@ -4,7 +4,7 @@
 @layer base {
   html,
   body {
-    @apply font-inter h-full;
+    @apply font-inter h-full overflow-x-hidden;
   }
 
   img {

@@ -1,4 +1,5 @@
 import Container from '@/components/layout/Container'
+import Footer from '@/components/layout/footer'
 import Navbar from '@/components/layout/navbar'
 import NotificationBar from '@/components/NotificationBar'
 import '@/styles/globals.css'
@@ -32,6 +33,7 @@ export default function RootLayout({
         <Container>
           <Navbar />
           {children}
+          <Footer />
         </Container>
       </body>
     </html>
