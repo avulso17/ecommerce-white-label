@@ -18,7 +18,7 @@ export default function Navbar() {
         <h1 className='font-manrope text-xl font-extrabold'>Ecommerce</h1>
       </Link>
       <NavbarMenu />
-      <div className='flex items-center gap-8'>
+      <div className='flex items-center gap-5'>
         <NavbarSearch />
         <NavbarCartButton />
         <NavbarProfileButton />

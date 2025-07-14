@@ -1,9 +1,10 @@
 import ProfileIcon from '@/components/icons/Profile'
+import Button from '@/components/ui/Button'
 
 export default function NavbarProfileButton() {
   return (
-    <button>
-      <ProfileIcon className='text-2xl' />
-    </button>
+    <Button variant='icon' className='text-neutral-black-900'>
+      <ProfileIcon />
+    </Button>
   )
 }

@@ -11,9 +11,7 @@ export default function ProductBuySection() {
           <Button type='submit' variant='primary' block>
             Comprar agora
           </Button>
-          <Button variant='secondary' block>
-            Adicionar
-          </Button>
+          <Button block>Adicionar</Button>
         </div>
       </div>
     </section>

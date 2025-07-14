@@ -10,14 +10,12 @@ type Size = {
 }
 
 type ProductSelectSizeProps = {
-  className?: string
   value?: string
   onChange?: (value: string) => void
   data: Size[]
 }
 
 export default function ProductSelectSize({
-  className,
   value,
   onChange,
   data,
@@ -37,20 +35,26 @@ export default function ProductSelectSize({
   }
 
   return (
-    <div className={cn(['flex items-center gap-2'], className)}>
-      {data.map((item) => (
-        <Button
-          key={item.value}
-          onClick={() => handleChange(item.value)}
-          className={cn('border-neutral-black-100 border focus:ring-0', {
-            'border-neutral-black-900 text-neutral-black-900':
-              currentValue === item.value,
-          })}
-          variant='icon'
-        >
-          <span className='text-xs'>{item.label}</span>
-        </Button>
-      ))}
+    <div className='mb-8'>
+      <span className='text-neutral-black-500 mb-2.5 block text-xs font-medium'>
+        SELECT SIZE
+      </span>
+
+      <div className='flex items-center gap-2'>
+        {data.map((item) => (
+          <Button
+            key={item.value}
+            onClick={() => handleChange(item.value)}
+            className={cn('border-neutral-black-100 border focus:ring-0', {
+              'border-neutral-black-900 text-neutral-black-900':
+                currentValue === item.value,
+            })}
+            variant='icon'
+          >
+            <span className='text-xs'>{item.label}</span>
+          </Button>
+        ))}
+      </div>
     </div>
   )
 }

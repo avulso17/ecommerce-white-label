@@ -1,6 +1,6 @@
 import { Product } from '@/api/products/types'
+import ProductDetails from './details/ProductDetails'
 import ProductDescription from './ProductDescription'
-import ProductDetails from './ProductDetails'
 import ProductImageCarousel from './ProductImageCarousel'
 
 type ProductPanelProps = {
