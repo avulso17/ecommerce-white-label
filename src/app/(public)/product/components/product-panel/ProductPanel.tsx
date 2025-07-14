@@ -1,4 +1,5 @@
 import { Product } from '@/api/products/types'
+import ProductDescription from './ProductDescription'
 import ProductDetails from './ProductDetails'
 import ProductImageCarousel from './ProductImageCarousel'
 
@@ -8,11 +9,14 @@ type ProductPanelProps = {
 
 export default function ProductPanel({ product }: ProductPanelProps) {
   return (
-    <div className='flex gap-28'>
-      <ProductImageCarousel
-        images={[product.image, product.image, product.image, product.image]}
-      />
-      <ProductDetails product={product} />
+    <div className='flex flex-col gap-44'>
+      <div className='flex gap-28'>
+        <ProductImageCarousel
+          images={[product.image, product.image, product.image, product.image]}
+        />
+        <ProductDetails product={product} />
+      </div>
+      <ProductDescription />
     </div>
   )
 }
