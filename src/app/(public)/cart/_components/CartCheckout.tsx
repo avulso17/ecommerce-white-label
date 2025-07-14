@@ -17,7 +17,7 @@ export default function CartCheckout() {
   const totalPrice = subtotalPrice + taxPrice + shippingPrice
 
   return (
-    <section className='border-neutral-black-100 h-fit max-w-[21.25rem] shrink-0 grow rounded border px-6 pt-8 pb-5'>
+    <section className='border-neutral-black-100 h-fit w-full max-w-[21.25rem] shrink-0 rounded border px-6 pt-8 pb-5'>
       <h3 className='text-neutral-black-900 mb-10 text-base font-semibold'>
         Order Summary
       </h3>

@@ -1,5 +1,5 @@
 import { getAllProducts } from '@/api/products/getAllProducts'
-import ProductsCarousel from '@/components/ProductsCarousel'
+import ProductsCarousel from '@/components/shared/ProductsCarousel'
 import Badge from '@/components/ui/Badge'
 
 export default async function HomeProductList() {

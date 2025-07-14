@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils/cn'
 import Image from 'next/image'
 import Link from 'next/link'
-import Badge from './ui/Badge'
+import Badge from '../ui/Badge'
 
 type ProductCardProps = {
   className?: string

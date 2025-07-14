@@ -1,5 +1,5 @@
 import { getAllProducts } from '@/api/products/getAllProducts'
-import ProductsCarousel from '@/components/ProductsCarousel'
+import ProductsCarousel from '@/components/shared/ProductsCarousel'
 
 export default async function HomeBestSeller() {
   const products = await getAllProducts()
