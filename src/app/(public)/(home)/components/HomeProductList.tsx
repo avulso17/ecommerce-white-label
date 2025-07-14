@@ -1,8 +1,10 @@
-import ProductCard from '@/components/ProductCard'
+import { getAllProducts } from '@/api/products/getAllProducts'
+import ProductsCarousel from '@/components/ProductsCarousel'
 import Badge from '@/components/ui/Badge'
-import { PRODUCTS } from '@/constants/products'
 
-export default function HomeProductList() {
+export default async function HomeProductList() {
+  const products = await getAllProducts()
+
   return (
     <section className='flex flex-col gap-12'>
       <div className='mx-auto flex items-center gap-6'>
@@ -10,17 +12,7 @@ export default function HomeProductList() {
         <button className='text-neutral-black-500 text-sm'>Latest</button>
       </div>
 
-      <div className='grid grid-cols-4 gap-5'>
-        {PRODUCTS.map((product) => (
-          <ProductCard
-            key={product.id}
-            href={`/product/${product.brand}/${product.id}`}
-            title={product.title}
-            price={product.price}
-            imgUrl={product.images[0]}
-          />
-        ))}
-      </div>
+      <ProductsCarousel data={products} />
     </section>
   )
 }
