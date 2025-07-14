@@ -1,5 +1,6 @@
 'use client'
 
+import CartIcon from '@/components/icons/Cart'
 import { useCart } from '@/hooks/useCart'
 import CartProductItem from './CartProductItem'
 
@@ -7,7 +8,19 @@ export default function CartList() {
   const items = useCart((state) => state.items)
 
   if (items.length < 1) {
-    return <span>sem items no carrinho</span>
+    return (
+      <section className='flex flex-col items-center gap-6 pt-4'>
+        <CartIcon className='text-4xl' />
+        <div className='flex flex-col items-center gap-2'>
+          <h4 className='text-neutral-black-900 text-lg font-semibold'>
+            Your cart is empty
+          </h4>
+          <span className='text-neutral-black-500 text-sm'>
+            Explore our products and add items to your cart
+          </span>
+        </div>
+      </section>
+    )
   }
 
   console.log(items)

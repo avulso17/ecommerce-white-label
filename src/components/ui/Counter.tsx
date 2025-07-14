@@ -62,7 +62,7 @@ export default function Counter({
       >
         <MinusIcon />
       </Button>
-      <span className='grow px-4 text-center select-none'>{currentValue}</span>
+      <span className='w-9 grow text-center select-none'>{currentValue}</span>
       <Button
         variant='icon'
         onClick={handleIncrease}
