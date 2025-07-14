@@ -1,8 +1,8 @@
 import { getProductById } from '@/api/products/getProductById'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { notFound } from 'next/navigation'
-import ProductPanel from '../../components/product-panel/ProductPanel'
-import ProductSimilarItems from '../../components/ProductSimilarItems'
+import ProductPanel from '../../_components/product-panel/ProductPanel'
+import ProductSimilarItems from '../../_components/ProductSimilarItems'
 
 type ProductPageProps = {
   params: Promise<{ id: string }>
