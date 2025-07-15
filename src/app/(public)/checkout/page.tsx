@@ -1,10 +1,17 @@
-import CheckoutHeader from './_components/CheckoutHeader'
+import PageHeader from '@/components/shared/PageHeader'
+import Separator from '@/components/ui/Separator'
+import CheckoutOrderDetail from './_components/CheckoutOrderDetail'
+import CheckoutShipping from './_components/CheckoutShipping'
 
 export default function CheckoutPage() {
   return (
     <main className='pb-32'>
-      <CheckoutHeader />
-      <div className='flex gap-20'>checkout</div>
+      <PageHeader title='Checkout' steps={['Checkout']} />
+      <div className='flex'>
+        <CheckoutShipping />
+        <Separator orientation='vertical' className='mr-16 ml-28' />
+        <CheckoutOrderDetail />
+      </div>
     </main>
   )
 }
