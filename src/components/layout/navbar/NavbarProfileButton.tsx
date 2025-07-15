@@ -1,19 +1,13 @@
-'use client'
-
 import ProfileIcon from '@/components/icons/Profile'
 import Button from '@/components/ui/Button'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 export default function NavbarProfileButton() {
-  const router = useRouter()
-
   return (
-    <Button
-      variant='icon'
-      className='text-neutral-black-900'
-      onClick={() => router.push('/login')}
-    >
-      <ProfileIcon />
-    </Button>
+    <Link href='/profile'>
+      <Button variant='icon' className='text-neutral-black-900'>
+        <ProfileIcon />
+      </Button>
+    </Link>
   )
 }

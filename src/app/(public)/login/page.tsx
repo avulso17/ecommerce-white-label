@@ -1,5 +1,5 @@
 import PageHeader from '@/components/shared/PageHeader'
-import Link from 'next/link'
+import Button from '@/components/ui/Button'
 import LoginForm from './_components/LoginForm'
 
 export default function LoginPage() {
@@ -7,14 +7,15 @@ export default function LoginPage() {
     <main className='pb-36'>
       <PageHeader title='Login' steps={['Login']} className='mb-28' />
 
-      <div className='mx-auto flex w-full max-w-80 flex-col gap-6'>
+      <div className='mx-auto flex w-full max-w-80 flex-col gap-4'>
         <LoginForm />
-        <Link
-          href='/signup'
+        <Button
+          size='sm'
+          variant='text'
           className='text-neutral-black-500 text-center text-sm hover:underline'
         >
           Don&apos;t have an account? <b>Sign up</b>
-        </Link>
+        </Button>
       </div>
     </main>
   )

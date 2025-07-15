@@ -1,12 +1,29 @@
+'use client'
+
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
+import { useActionState } from 'react'
+import { loginAction } from '../_actions/login'
 
 export default function LoginForm() {
+  const [state, action, pending] = useActionState(loginAction, undefined)
+
   return (
-    <form action=''>
+    <form action={action}>
       <div className='flex flex-col gap-4'>
-        <Input id='email' name='email' label='Email' />
-        <Input id='password' name='password' label='Password' type='password' />
+        <Input
+          id='username'
+          name='username'
+          label='Username'
+          error={state?.errors.username?.[0]}
+        />
+        <Input
+          id='password'
+          name='password'
+          label='Password'
+          type='password'
+          error={state?.errors.password?.[0]}
+        />
       </div>
 
       <Button
@@ -17,7 +34,9 @@ export default function LoginForm() {
         Forgot Password?
       </Button>
 
-      <Button block>Login</Button>
+      <Button block type='submit' isLoading={pending}>
+        Login
+      </Button>
     </form>
   )
 }

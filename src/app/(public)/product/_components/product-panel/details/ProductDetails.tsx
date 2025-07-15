@@ -26,7 +26,9 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           label={
             <span className='flex items-center gap-1'>
               <StarIcon className='text-neutral-black-500 text-2xl' />
-              <span>4.2 — 54 Reviews</span>
+              <span>
+                {product.rating.rate} — {product.rating.count} Reviews
+              </span>
             </span>
           }
         />

@@ -5,6 +5,7 @@ import NotificationBar from '@/components/NotificationBar'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter, Manrope } from 'next/font/google'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -35,6 +36,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </Container>
+        <Toaster />
       </body>
     </html>
   )
