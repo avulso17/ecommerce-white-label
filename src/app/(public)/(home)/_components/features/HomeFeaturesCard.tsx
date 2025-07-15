@@ -15,9 +15,9 @@ export default function HomeFeaturesCard({
         {icon}
       </div>
 
-      <h4 className='text-neutral-black-800 mb-3 text-base font-semibold'>
+      <h3 className='text-neutral-black-800 mb-3 text-base font-semibold'>
         {title}
-      </h4>
+      </h3>
       <p className='text-neutral-black-500 max-w-72 text-sm leading-[175%]'>
         {description}
       </p>

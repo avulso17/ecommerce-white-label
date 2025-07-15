@@ -7,7 +7,7 @@ import NavbarSearch from './NavbarSearch'
 
 export default function Navbar() {
   return (
-    <div className='flex h-20 items-center justify-between px-3'>
+    <div className='flex h-20 items-center justify-between'>
       <Link href='/' className='flex items-center gap-3'>
         <Image
           src='/assets/images/logo.svg'

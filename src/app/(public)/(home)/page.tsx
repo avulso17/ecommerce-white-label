@@ -1,7 +1,8 @@
-import HomeFeaturesSection from './components/features'
-import HomeBestSeller from './components/HomeBestSeller'
-import HomeHero from './components/HomeHero'
-import HomeProductList from './components/HomeProductList'
+import HomeFeaturesSection from './_components/features'
+import HomeBestSeller from './_components/HomeBestSeller'
+import HomeCategoriesCTA from './_components/HomeCategoriesCTA'
+import HomeHero from './_components/HomeHero'
+import HomeProductList from './_components/HomeProductList'
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
         <HomeFeaturesSection />
         <HomeBestSeller />
       </div>
-      <div>categories cta</div>
+      <HomeCategoriesCTA />
       <div className='pt-40 pb-48'>
         <HomeProductList />
       </div>

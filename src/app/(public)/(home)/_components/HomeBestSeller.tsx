@@ -10,9 +10,9 @@ export default async function HomeBestSeller() {
         <span className='text-neutral-black-300 text-xs font-medium'>
           SHOP NOW
         </span>
-        <h3 className='text-neutral-black-900 text-2xl font-bold'>
+        <h2 className='text-neutral-black-900 text-2xl font-bold'>
           Best Selling
-        </h3>
+        </h2>
       </div>
 
       <ProductsCarousel data={products} />
