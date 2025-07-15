@@ -17,13 +17,13 @@ export default function ProductDetailsForm({ item }: { item: Product }) {
   const [quantity, setQuantity] = useState(1)
 
   const inCart = useMemo(
-    () => cartItems.some((p) => p.id === item.id),
-    [cartItems, item.id]
+    () => cartItems.some((p) => p.id === item.id && p.size === size),
+    [cartItems, item.id, size]
   )
 
   const handleAddItem = useCallback(() => {
     if (inCart) {
-      removeCartItem(String(item.id))
+      removeCartItem(String(item.id), size)
       return
     }
 
@@ -32,7 +32,7 @@ export default function ProductDetailsForm({ item }: { item: Product }) {
       quantity,
       size,
     })
-  }, [addCartItem, inCart, item, quantity, removeCartItem, size])
+  }, [item, inCart, quantity, size, addCartItem, removeCartItem])
 
   return (
     <>

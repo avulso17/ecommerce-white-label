@@ -67,8 +67,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             </span>
           )}
         </div>
-
-        {error && <span className='text-sm text-red-900'>{error}</span>}
+        {error && <span className='text-xs text-red-900'>{error}</span>}
       </div>
     )
   }

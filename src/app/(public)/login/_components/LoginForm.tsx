@@ -1,28 +1,53 @@
 'use client'
 
+import { LoginCredentials } from '@/api/auth/types'
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
+import { LoginFormSchema } from '@/lib/definitions/loginFormSchema'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useActionState } from 'react'
+import { useForm } from 'react-hook-form'
 import { loginAction } from '../_actions/login'
+import { loginActionRHF } from '../_actions/loginRHF'
 
 export default function LoginForm() {
   const [state, action, pending] = useActionState(loginAction, undefined)
 
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors, isSubmitting },
+  } = useForm<LoginCredentials>({
+    resolver: zodResolver(LoginFormSchema),
+    mode: 'onChange',
+  })
+
+  const onSubmit = async (data: LoginCredentials) => {
+    try {
+      await loginActionRHF(data)
+    } catch (error: any) {
+      setError('root', {
+        message: error.message,
+      })
+    }
+  }
+
   return (
-    <form action={action}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col gap-4'>
         <Input
           id='username'
-          name='username'
           label='Username'
-          error={state?.errors.username?.[0]}
+          {...register('username')}
+          // error={state?.errors}
         />
         <Input
           id='password'
-          name='password'
           label='Password'
           type='password'
-          error={state?.errors.password?.[0]}
+          {...register('password')}
+          // error={state?.errors.password?.[0]}
         />
       </div>
 
@@ -34,7 +59,7 @@ export default function LoginForm() {
         Forgot Password?
       </Button>
 
-      <Button block type='submit' isLoading={pending}>
+      <Button block type='submit' isLoading={isSubmitting}>
         Login
       </Button>
     </form>

@@ -1,3 +1,5 @@
+import { AxiosResponse } from 'axios'
+
 export type LoginCredentials = {
   username: string
   password: string
@@ -6,6 +8,8 @@ export type LoginCredentials = {
 export type LoginResponse = {
   token: string
 }
+
+export type LoginAxiosResponse = AxiosResponse<LoginResponse, LoginCredentials>
 
 export type User = {
   address: Address

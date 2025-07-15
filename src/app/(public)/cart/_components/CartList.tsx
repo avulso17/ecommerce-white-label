@@ -23,13 +23,11 @@ export default function CartList() {
     )
   }
 
-  console.log(items)
-
   return (
     <div className='flex flex-col gap-10'>
-      {items.map((item) => (
+      {items.map((item, index) => (
         <CartProductItem
-          key={item.id}
+          key={index}
           id={item.id}
           image={item.image}
           title={item.title}

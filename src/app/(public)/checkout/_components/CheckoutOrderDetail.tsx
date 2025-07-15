@@ -4,6 +4,7 @@ import OrderSumarry from '@/components/shared/OrderSummary'
 import Button from '@/components/ui/Button'
 import { useCart } from '@/hooks/useCart'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 export default function CheckoutOrderDetail() {
@@ -40,12 +41,23 @@ export default function CheckoutOrderDetail() {
           </Button>
         </div>
       ) : (
-        <span className='mb-16 block text-center text-sm'>Cart is empty!</span>
+        <span className='mb-16 block text-center text-sm'>
+          Cart is empty!{' '}
+          <Link href='/' className='font-bold underline'>
+            Go to shopping.
+          </Link>
+        </span>
       )}
 
       <OrderSumarry className='mb-6' />
 
-      <Button size='sm' block disabled={!hasCartItems}>
+      <Button
+        block
+        type='submit'
+        form='shipping-form'
+        size='sm'
+        disabled={!hasCartItems}
+      >
         Place Order
       </Button>
     </section>

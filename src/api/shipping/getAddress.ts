@@ -1,23 +1,8 @@
 'use server'
 
+import { VIA_CEP_BASE_URL } from '@/constants/baseUrl'
 import { clearCookieValue, createCookie } from '@/lib/utils/cookies'
-import { ViaCEPResponse } from '@/types/viacep'
-
-const BASE_URL = 'https://viacep.com.br/ws/'
-
-export type ShippingSuccess = {
-  status: 'success'
-  price: number
-  estimated_date: string
-  cep_details: ViaCEPResponse
-}
-
-export type ShippingError = {
-  status: 'error'
-  message: string
-}
-
-type ShippingState = ShippingSuccess | ShippingError | null
+import { ShippingState, ShippingSuccess } from './types'
 
 export async function getShipping(
   prevState: ShippingState,
@@ -38,7 +23,7 @@ export async function getShipping(
     }
   }
 
-  const res = await fetch(`${BASE_URL}/${rawCep}/json`)
+  const res = await fetch(`${VIA_CEP_BASE_URL}/${rawCep}/json`)
 
   if (!res.ok) {
     return {
@@ -65,7 +50,6 @@ export async function getShipping(
     estimated_date,
     cep_details: cep_details_data,
   } as ShippingSuccess
-
   await createCookie('shipping', JSON.stringify(data))
 
   return data

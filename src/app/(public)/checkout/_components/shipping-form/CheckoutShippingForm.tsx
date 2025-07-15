@@ -1,33 +1,70 @@
+'use client'
+
+import { CheckoutFormValues } from '@/api/shipping/types'
 import Input from '@/components/ui/Input'
+import { CheckoutFormSchema } from '@/lib/definitions/checkoutFormSchema'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
 
 export default function CheckoutShippingForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<CheckoutFormValues>({
+    resolver: zodResolver(CheckoutFormSchema),
+    mode: 'onChange',
+  })
+
+  const onSubmit = async (data: CheckoutFormValues) => {
+    console.log('data', data)
+  }
+
   return (
-    <form className='flex flex-col gap-12'>
+    <form
+      id='shipping-form'
+      className='flex flex-col gap-12'
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className='flex grow flex-col gap-4'>
-        <Input id='street' name='street' label='Street Address' />
+        <Input
+          id='street'
+          label='Street Address'
+          {...register('streetAddress')}
+          error={errors.streetAddress?.message}
+        />
 
         <div className='flex grow gap-4'>
-          <Input id='city' name='city' containerClassName='grow' label='City' />
+          <Input
+            id='city'
+            label='City'
+            containerClassName='w-1/2'
+            {...register('city')}
+            error={errors.city?.message}
+          />
           <Input
             id='state'
-            name='state'
-            containerClassName='grow'
             label='State'
+            containerClassName='w-1/2'
+            {...register('state')}
+            error={errors.state?.message}
           />
         </div>
 
         <div className='flex grow gap-4'>
           <Input
             id='zip'
-            name='zip'
-            containerClassName='grow'
             label='Zip Code'
+            containerClassName='w-1/2'
+            {...register('zipCode')}
+            error={errors.zipCode?.message}
           />
           <Input
             id='country'
-            name='country'
-            containerClassName='grow'
             label='Country'
+            containerClassName='w-1/2'
+            {...register('country')}
+            error={errors.country?.message}
           />
         </div>
       </div>
@@ -35,15 +72,17 @@ export default function CheckoutShippingForm() {
       <div className='flex grow gap-4'>
         <Input
           id='email'
-          name='email'
-          containerClassName='grow'
           label='Email'
+          containerClassName='w-1/2'
+          {...register('email')}
+          error={errors.email?.message}
         />
         <Input
-          id='name'
-          name='name'
-          containerClassName='grow'
+          id='fullname'
           label='Full name'
+          containerClassName='w-1/2'
+          {...register('fullName')}
+          error={errors.fullName?.message}
         />
       </div>
     </form>

@@ -6,7 +6,10 @@ import { CartItem, useCart } from '@/hooks/useCart'
 import Image from 'next/image'
 import { useCallback, useState } from 'react'
 
-type CartProductItemProps = Omit<CartItem, 'category' | 'description'>
+type CartProductItemProps = Omit<
+  CartItem,
+  'category' | 'description' | 'rating'
+>
 
 export default function CartProductItem({
   id,
@@ -31,8 +34,8 @@ export default function CartProductItem({
   )
 
   const handleRemove = useCallback(
-    () => removeCartItem(String(id)),
-    [id, removeCartItem]
+    () => removeCartItem(String(id), size),
+    [id, size, removeCartItem]
   )
 
   return (
