@@ -5,7 +5,7 @@ import CartProducts from './_components/CartProducts'
 export default function CartPage() {
   return (
     <main className='pb-52'>
-      <PageHeader title='Cart' steps={['Cart']} />
+      <PageHeader title='Cart' steps={['Cart']} className='mb-14' />
       <div className='flex gap-28'>
         <CartProducts />
         <CartCheckout />
