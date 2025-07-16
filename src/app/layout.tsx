@@ -1,9 +1,10 @@
+import '@/styles/globals.css'
+
 import Container from '@/components/layout/Container'
 import Footer from '@/components/layout/footer'
 import Navbar from '@/components/layout/navbar'
-import NotificationBar from '@/components/NotificationBar'
+import NotificationBar from '@/components/layout/NotificationBar'
 import Providers from '@/providers/Providers'
-import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter, Manrope } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
