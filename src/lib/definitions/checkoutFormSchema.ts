@@ -7,7 +7,7 @@ export const CheckoutFormSchema = z.object({
   zipCode: z
     .string()
     .regex(/^\d{5}-?\d{3}$/, 'Invalid CEP format. Use XXXXX-XXX.'),
-  country: z.string().min(2, 'Is required'),
+  country: z.string().min(2, 'Country is required.'),
   email: z.string().email('Invalid email format.'),
   fullName: z
     .string()

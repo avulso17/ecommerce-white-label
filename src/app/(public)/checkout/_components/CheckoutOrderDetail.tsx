@@ -21,9 +21,9 @@ export default function CheckoutOrderDetail() {
       {hasCartItems ? (
         <div className='mb-16 flex items-center justify-between gap-2.5'>
           <div className='flex items-center gap-3 overflow-hidden'>
-            {cartItems.map((item) => (
+            {cartItems.map((item, index) => (
               <picture
-                key={item.id}
+                key={index}
                 className='bg-neutral-white-100 grid h-10 w-10 place-items-center rounded-full'
               >
                 <Image

@@ -5,6 +5,7 @@ import Input from '@/components/ui/Input'
 import { CheckoutFormSchema } from '@/lib/definitions/checkoutFormSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 
 export default function CheckoutShippingForm() {
   const {
@@ -17,7 +18,8 @@ export default function CheckoutShippingForm() {
   })
 
   const onSubmit = async (data: CheckoutFormValues) => {
-    console.log('data', data)
+    console.log(data)
+    toast.success('Place order successfully')
   }
 
   return (
