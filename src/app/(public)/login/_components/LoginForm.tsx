@@ -1,55 +1,46 @@
 'use client'
 
-import { LoginCredentials } from '@/api/auth/types'
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
-import { LoginFormSchema } from '@/lib/definitions/loginFormSchema'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useActionState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useActionState, useState } from 'react'
 import { loginAction } from '../_actions/login'
-import { loginActionRHF } from '../_actions/loginRHF'
 
 export default function LoginForm() {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
   const [state, action, pending] = useActionState(loginAction, undefined)
-
-  const {
-    register,
-    handleSubmit,
-    setError,
-    formState: { errors, isSubmitting },
-  } = useForm<LoginCredentials>({
-    resolver: zodResolver(LoginFormSchema),
-    mode: 'onChange',
-  })
-
-  const onSubmit = async (data: LoginCredentials) => {
-    try {
-      await loginActionRHF(data)
-    } catch (error: any) {
-      setError('root', {
-        message: error.message,
-      })
-    }
-  }
+  const errors = state?.errors
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className='flex flex-col gap-4'>
+    <form action={action}>
+      <div className='mb-1 flex flex-col gap-4'>
         <Input
           id='username'
+          name='username'
           label='Username'
-          {...register('username')}
-          // error={state?.errors}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <Input
           id='password'
+          name='password'
           label='Password'
           type='password'
-          {...register('password')}
-          // error={state?.errors.password?.[0]}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
       </div>
+      {errors?.credentials?.[0] && (
+        <span className='block text-center text-xs text-red-900'>
+          {errors.credentials}
+        </span>
+      )}
+
+      {errors?.general?.[0] && (
+        <span className='block text-center text-xs text-red-900'>
+          {errors.general}
+        </span>
+      )}
 
       <Button
         variant='text'
@@ -59,7 +50,12 @@ export default function LoginForm() {
         Forgot Password?
       </Button>
 
-      <Button block type='submit' isLoading={isSubmitting}>
+      <Button
+        block
+        type='submit'
+        isLoading={pending}
+        disabled={!username || !password}
+      >
         Login
       </Button>
     </form>

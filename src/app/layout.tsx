@@ -2,6 +2,7 @@ import Container from '@/components/layout/Container'
 import Footer from '@/components/layout/footer'
 import Navbar from '@/components/layout/navbar'
 import NotificationBar from '@/components/NotificationBar'
+import Providers from '@/providers/Providers'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter, Manrope } from 'next/font/google'
@@ -30,12 +31,14 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${inter.variable} ${manrope.variable}`}>
-        <NotificationBar />
-        <Container>
-          <Navbar />
-          {children}
-          <Footer />
-        </Container>
+        <Providers>
+          <NotificationBar />
+          <Container>
+            <Navbar />
+            {children}
+            <Footer />
+          </Container>
+        </Providers>
         <Toaster />
       </body>
     </html>

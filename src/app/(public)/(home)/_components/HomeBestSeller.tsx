@@ -1,8 +1,10 @@
-import { getAllProducts } from '@/api/products/getAllProducts'
-import ProductsCarousel from '@/components/shared/ProductsCarousel'
+'use client'
 
-export default async function HomeBestSeller() {
-  const products = await getAllProducts()
+import ProductsCarousel from '@/components/shared/ProductsCarousel'
+import { useFetchProducts } from '@/hooks/useFetchProducts'
+
+export default function HomeBestSeller() {
+  const { data: products } = useFetchProducts()
 
   return (
     <section className='flex flex-col gap-20'>

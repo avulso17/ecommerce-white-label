@@ -1,9 +1,11 @@
-import { getAllProducts } from '@/api/products/getAllProducts'
+'use client'
+
 import ProductsCarousel from '@/components/shared/ProductsCarousel'
 import Badge from '@/components/ui/Badge'
+import { useFetchProducts } from '@/hooks/useFetchProducts'
 
-export default async function HomeProductList() {
-  const products = await getAllProducts()
+export default function HomeProductList() {
+  const { data: products } = useFetchProducts()
 
   return (
     <section className='flex flex-col gap-12'>

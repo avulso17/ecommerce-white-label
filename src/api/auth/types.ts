@@ -39,3 +39,14 @@ export type Name = {
   firstname: string
   lastname: string
 }
+
+export type LoginFormState =
+  | {
+      errors: {
+        username?: string[]
+        password?: string[]
+        credentials?: string[]
+        general?: string[]
+      }
+    }
+  | undefined
