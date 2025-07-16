@@ -1,4 +1,4 @@
-import { getProductById } from '@/api/products/getProductById'
+import { fetchProductById } from '@/api/products/fetchProductById'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { notFound } from 'next/navigation'
 import ProductPanel from '../../_components/product-panel/ProductPanel'
@@ -10,7 +10,7 @@ type ProductPageProps = {
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { id } = await params
-  const product = await getProductById(id)
+  const product = await fetchProductById(id)
 
   if (product === undefined) {
     notFound()
